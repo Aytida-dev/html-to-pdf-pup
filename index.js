@@ -44,7 +44,7 @@ const pdfGeneration = async (htmlData) => {
 // node -e "console.log(require('puppeteer').executablePath())"  
 let count = 0
 
-while (count < 10) {
+while (count < 1) {
     count++
 
     // const randomTime = Math.floor(Math.random() * 1000)
