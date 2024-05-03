@@ -1,6 +1,6 @@
 FROM public.ecr.aws/docker/library/node:lts-alpine
 
-ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=true
+ENV PUPPETEER_SKIP_CHROME_DOWNLOAD=true
 
 WORKDIR /app
 COPY package*.json ./

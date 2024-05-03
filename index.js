@@ -1,40 +1,21 @@
-const { generatePdf } = require("./lib/generatePdf")
 const { pdfEvents } = require("./lib/eventEmitter")
-const { enqueuePdf, getFirstHtmlData, dequeuePdf, renderHtmlWorking, renderHtmlStale } = require("./lib/utils/pdfQueueUtils")
+const { enqueuePdf } = require("./lib/utils/pdfQueueUtils")
+const { configure_module } = require("./lib/config")
 
 const { htmlData } = require("./testHtml")
-const { getTab, removeTab } = require("./lib/utils/browserTabsUtils")
 
+require("./lib/pdfEvents")
 
-pdfEvents.on("HTML_ADDED", async () => {
-    const html = getFirstHtmlData("stale")
-    renderHtmlWorking()
-
-    const tab = await getTab()
-
-    if (!tab) {
-        console.log("No tab available");
-        renderHtmlStale()
-        return
-    }
-
-    pdfEvents.emit("TAB_READY", tab, html)
-})
-
-pdfEvents.on("TAB_READY", async (tab, html) => {
-    const pdfBuffer = await generatePdf(tab, html)
-
-    dequeuePdf("working")
-    pdfEvents.emit("PDF_GENERATED", pdfBuffer)
-    console.log("PDF Generated");
-    await removeTab(tab)
-})
-
-const pdfGeneration = async (htmlData) => {
+const create_pdf = async (htmlData) => {
     return new Promise((resolve, reject) => {
         enqueuePdf(htmlData, "stale")
         pdfEvents.once("PDF_GENERATED", (pdfBuffer) => {
-            resolve(pdfBuffer)
+            if (pdfBuffer) {
+                resolve(pdfBuffer)
+            }
+            else {
+                reject("Error in creating PDF")
+            }
         })
     })
 }
@@ -44,7 +25,12 @@ const pdfGeneration = async (htmlData) => {
 // node -e "console.log(require('puppeteer').executablePath())"  
 let count = 0
 
-while (count < 1) {
+configure_module({
+    MAX_TABS: 1,
+    DEV_MODE: true,
+})
+
+while (count < 3) {
     count++
 
     // const randomTime = Math.floor(Math.random() * 1000)
@@ -55,12 +41,14 @@ while (count < 1) {
     // wait.then(() => {
     //     //time the log with request initiated string
     // })
-    pdfGeneration(htmlData).then((pdfBuffer) => {
+    create_pdf(htmlData).then((pdfBuffer) => {
         // console.log("PDF Created and returned successfully")
+    }).catch((error) => {
+        console.error("Error in creating PDF:", error)
     })
-
-
 }
+
+
 
 
 
