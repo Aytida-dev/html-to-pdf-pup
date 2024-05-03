@@ -25,8 +25,8 @@ pdfEvents.on("TAB_READY", async (tab, html) => {
     const pdfBuffer = await generatePdf(tab, html)
 
     dequeuePdf("working")
-    console.log("PDF Generated");
     pdfEvents.emit("PDF_GENERATED", pdfBuffer)
+    console.log("PDF Generated");
     await removeTab(tab)
 })
 
@@ -39,24 +39,26 @@ const pdfGeneration = async (htmlData) => {
     })
 }
 
+//testing
+
 let count = 0;
 
 while (count < 1) {
     count++
 
-    //await for a random number of time
-    // const randomTime = Math.floor(Math.random() * 1000) + 1
-    // const wait = new Promise(resolve => setTimeout(resolve, randomTime))
+    const randomTime = Math.floor(Math.random() * 1000)
+    const wait = new Promise(resolve => setTimeout(resolve, randomTime))
 
-    // wait.then(() => {
-    //     pdfGeneration(htmlData).then((pdfBuffer) => {
-    //         // console.log("PDF Created and returned successfully")
-    //     })
-    // })
+    console.log("wait", randomTime);
 
-    pdfGeneration(htmlData).then((pdfBuffer) => {
-        // console.log("PDF Created and returned successfully")
+    wait.then(() => {
+        //time the log with request initiated string
+        pdfGeneration(htmlData).then((pdfBuffer) => {
+            // console.log("PDF Created and returned successfully")
+        })
     })
+
+
 }
 
 
