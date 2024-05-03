@@ -41,21 +41,22 @@ const pdfGeneration = async (htmlData) => {
 
 //testing
 
-let count = 0;
+// node -e "console.log(require('puppeteer').executablePath())"  
+let count = 0
 
-while (count < 1) {
+while (count < 10) {
     count++
 
-    const randomTime = Math.floor(Math.random() * 1000)
-    const wait = new Promise(resolve => setTimeout(resolve, randomTime))
+    // const randomTime = Math.floor(Math.random() * 1000)
+    // const wait = new Promise(resolve => setTimeout(resolve, randomTime))
 
-    console.log("wait", randomTime);
+    // console.log("wait", randomTime);
 
-    wait.then(() => {
-        //time the log with request initiated string
-        pdfGeneration(htmlData).then((pdfBuffer) => {
-            // console.log("PDF Created and returned successfully")
-        })
+    // wait.then(() => {
+    //     //time the log with request initiated string
+    // })
+    pdfGeneration(htmlData).then((pdfBuffer) => {
+        // console.log("PDF Created and returned successfully")
     })
 
 

@@ -1,0 +1,14 @@
+version: '1'
+
+services:
+  module:
+    build:
+      context: .
+      dockerfile: Dockerfile 
+    deploy:
+      resources:
+        limits:
+          cpus: '0.20'
+          memory: 312M
+    volumes:
+      - .:/app
