@@ -26,12 +26,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Aytida-dev/html-to-pdf.git"
+    "url": "git+https://github.com/Aytida-dev/html-node-pdf.git"
   },
   "bugs": {
-    "url": "https://github.com/Aytida-dev/html-to-pdf/issues"
+    "url": "https://github.com/Aytida-dev/html-node-pdf/issues"
   },
-  "homepage": "https://github.com/Aytida-dev/html-to-pdf#readme",
+  "homepage": "https://github.com/Aytida-dev/html-node-pdf#readme",
   "dependencies": {
     "puppeteer": "^22.7.1"
   }

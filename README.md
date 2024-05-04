@@ -1,4 +1,6 @@
-# Html-to-pdf-node
+# Html-node-pdf
+
+[![NPM](https://nodei.co/npm/html-node-pdf.png)](https://nodei.co/npm/html-node-pdf/)
 
 > A package to convert html+css to pdf in node js.
 
