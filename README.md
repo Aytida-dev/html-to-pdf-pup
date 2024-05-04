@@ -86,7 +86,7 @@ create_pdf(htmlData)
 
    > If true , then whole steps will be console logged showing the conversion process.
 
-2. MAX_TABS: number (default: 5)
+2. MAX_TABS: number (default: 2)
 
    > It controls the maximum number of tabs that are allowed to open for pdf conversion. Increasing this will increase the async conversion speed as more pdf will convert simultaneously but it will also increase the resource usage.
 
@@ -114,14 +114,31 @@ create_pdf(htmlData)
    puppeteerConfig : {
        headless: true,
        args: [
-           '--no-sandbox',
-           '--disable-setuid-sandbox',
-           '--disable-dev-shm-usage',
-           '--disable-accelerated-2d-canvas',
-           '--no-first-run',
-           '--no-zygote',
-           '--single-process',
-           '--disable-gpu'
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--no-first-run',
+            '--no-zygote',
+            '--disable-gpu',
+            '--disable-infobars',
+            '--hide-scrollbars',
+            '--disable-notifications',
+            '--disable-extensions',
+            '--disable-web-security',
+            '--disable-background-networking',
+            '--disable-default-apps',
+            '--disable-translate',
+            '--disable-sync',
+            '--disable-logging',
+            '--disable-background-timer-throttling',
+            '--disable-client-side-phishing-detection',
+            '--disable-popup-blocking',
+            '--disable-component-extensions-with-background-pages',
+            '--metrics-recording-only',
+            '--ignore-certificate-errors',
+            '--proxy-server="direct://"',
+            '--proxy-bypass-list=*'
        ],
    }
 
