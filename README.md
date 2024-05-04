@@ -35,3 +35,65 @@ create_pdf(htmlData)
     console.log(err);
   });
 ```
+
+### Config Mode
+
+> it also have a config mode to configure the puppeter , pdf , and the conversion process.
+
+```js
+const { create_pdf, configure_module } = require("html-to-pdf");
+
+configure_module({
+  DEV_MODE: true,
+
+  MAX_TABS: 5,
+
+  puppeteerConfig: {
+    headless: true,
+    args: ["--no-sandbox", "--disable-setuid-sandbox"],
+  },
+
+  pdfConfig: {
+    format: "A4",
+    printBackground: true,
+  },
+});
+
+let htmlData = "<html><body><h1>Hello World</h1></body></html>";
+
+create_pdf(htmlData)
+  .then((pdfBuffer) => {
+    console.log(pdfBuffer);
+  })
+  .catch((err) => {
+    console.log(err);
+  });
+```
+
+> configure module takes an object with the following keys:-
+
+1. DEV_MODE: boolean (default: false)
+
+   > If true then whole steps will be console logged showing the conversion process.
+
+2. MAX_TABS: number (default: 5)
+   > It controls the maximum number of tabs that are allowed to open for pdf conversion. Increasing this will increase the async conversion speed as more pdf will convert simultaneously but it will also increase the resource usage.
+   > User can adjust it according to their server resources.
+
+3.pdfConfig: object (default: {width:'796px', height: (dynamic height according to html content) , printBackground: true})
+
+> It is the pdf options that are passed to the puppeter pdf function. refer this link for all the options [puppeteer pdf options](https://pptr.dev/api/puppeteer.pdfoptions)
+
+4. puppeteerConfig: object (default: {headless: true, args: [
+   '--no-sandbox',
+   '--disable-setuid-sandbox',
+   '--disable-dev-shm-usage',
+   '--disable-accelerated-2d-canvas',
+   '--no-first-run',
+   '--no-zygote',
+   '--single-process',
+   '--disable-gpu'
+   ],})
+   > It is the puppeteer options that are passed to the puppeter launch function. refer this link for all the options [puppeteer launch options](https://pptr.dev/api/puppeteer.launchoptions) , [puppeteer chrome specific options](https://pptr.dev/api/puppeteer.browserlaunchargumentoptions)
+
+## Note if you are using your own chromium then pass the executable path to puppeteer config and set PUPPETEER_SKIP_DOWNLOAD=true as env to skip chromium download by puppeteer. Refer this for more info [here](https://pptr.dev/troubleshooting#running-puppeteer-in-docker)
