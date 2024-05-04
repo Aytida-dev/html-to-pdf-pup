@@ -18,7 +18,7 @@
 ## Installation
 
 ```sh
-npm install html-to-pdf
+npm i @aditya.dev/html-to-pdf
 ```
 
 ## Usage
