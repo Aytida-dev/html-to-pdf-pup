@@ -1,5 +1,5 @@
 {
-  "name": "html-to-pdf",
+  "name": "@aditya.dev/html-to-pdf",
   "description": "An event-driven optimized system to convert HTML to PDF using Puppeteer in node js",
   "version": "1.0.0",
   "directories": {
