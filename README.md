@@ -4,8 +4,8 @@
 
 > A package to convert html+css to pdf in node js.
 
-> Features:-
->
+### Features:-
+
 > 1. Highly scalable event driven system.
 > 2. Can asynchronously convert multiple html to pdf using multiple tabs or can use same tab for queue pdf generation.
 > 3. A message queue system to manage the conversion process.
@@ -16,6 +16,15 @@
 > 8. Uses puppeter under the hood for pdf conversion.
 > 9. Returns a pdf buffer .
 > 10. Use dynamic height for pdfs by default.
+
+### Optimizations techniques used:-
+
+> 1. Uses a message queue system to manage the conversion process.
+> 2. Only a single browser is opened no matter what.
+> 3. Browser only closes itself when all requests are done.
+> 4. Multiple tabs opens for concurrent pdf conversion.
+> 5. If a tab has done pdf conversion then it starts processing another request and only closes itself when all requests are done.
+> 6. Tight integration of max tab system and single broswer for better resource management.
 
 ## Installation
 
