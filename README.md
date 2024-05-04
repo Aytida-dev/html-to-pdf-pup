@@ -1,4 +1,4 @@
-# Html-to-pdf
+# Html-to-pdf-node
 
 > A package to convert html+css to pdf in node js.
 
@@ -18,7 +18,7 @@
 ## Installation
 
 ```sh
-npm i @aditya.dev/html-to-pdf
+npm i html-node-pdf
 ```
 
 ## Usage
@@ -26,7 +26,7 @@ npm i @aditya.dev/html-to-pdf
 ### Basic usage
 
 ```js
-const { create_pdf } = require("html-to-pdf");
+const { create_pdf } = require("html-node-pdf");
 
 let htmlData = "<html><body><h1>Hello World</h1></body></html>";
 
@@ -44,7 +44,7 @@ create_pdf(htmlData)
 > It also have a config mode to configure the puppeter , pdf , and the conversion process.
 
 ```js
-const { create_pdf, configure_module } = require("html-to-pdf");
+const { create_pdf, configure_module } = require("html-node-pdf");
 
 configure_module({
   DEV_MODE: true,
