@@ -1,4 +1,4 @@
-# html-to-pdf
+# Html-to-pdf
 
 > A package to convert html+css to pdf in node js.
 
