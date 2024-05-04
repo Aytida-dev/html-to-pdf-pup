@@ -1,6 +1,6 @@
-# Html-node-pdf
+# html-to-pdf-pup
 
-[![NPM](https://nodei.co/npm/html-node-pdf.png)](https://nodei.co/npm/html-node-pdf/)
+[![NPM](https://nodei.co/npm/html-to-pdf-pup.png)](https://nodei.co/npm/html-to-pdf-pup/)
 
 > A package to convert html+css to pdf in node js.
 
@@ -20,7 +20,7 @@
 ## Installation
 
 ```sh
-npm i html-node-pdf
+npm i html-to-pdf-pup
 ```
 
 ## Usage
@@ -28,7 +28,7 @@ npm i html-node-pdf
 ### Basic usage
 
 ```js
-const { create_pdf } = require("html-node-pdf");
+const { create_pdf } = require("html-to-pdf-pup");
 
 let htmlData = "<html><body><h1>Hello World</h1></body></html>";
 
@@ -46,7 +46,7 @@ create_pdf(htmlData)
 > It also have a config mode to configure the puppeter , pdf , and the conversion process.
 
 ```js
-const { create_pdf, configure_module } = require("html-node-pdf");
+const { create_pdf, configure_module } = require("html-to-pdf-pup");
 
 configure_module({
   DEV_MODE: true,

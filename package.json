@@ -1,7 +1,7 @@
 {
-  "name": "html-node-pdf",
+  "name": "html-to-pdf-pup",
   "description": "An event-driven optimized system to convert HTML to PDF using Puppeteer in node js",
-  "version": "2.0.1",
+  "version": "2.0.2",
   "directories": {
     "lib": "lib"
   },
@@ -22,16 +22,18 @@
     "puppeteer",
     "nodejs",
     "event-driven",
-    "pdf-generation"
+    "pdf-generation",
+    "Scalable",
+    "efficient"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Aytida-dev/html-node-pdf.git"
+    "url": "git+https://github.com/Aytida-dev/html-to-pdf-pup.git"
   },
   "bugs": {
-    "url": "https://github.com/Aytida-dev/html-node-pdf/issues"
+    "url": "https://github.com/Aytida-dev/html-to-pdf-pup/issues"
   },
-  "homepage": "https://github.com/Aytida-dev/html-node-pdf#readme",
+  "homepage": "https://github.com/Aytida-dev/html-to-pdf-pup#readme",
   "dependencies": {
     "puppeteer": "^22.7.1"
   }
