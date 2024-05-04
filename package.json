@@ -2,18 +2,14 @@
   "name": "html-to-pdf",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "nodemon index.js",
-    "warn": "node --trace-warnings index.js"
+  "main": "./index.js",
+  "exports": {
+    "import": "./wrapper.mjs",
+    "require": "./index.cjs"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "puppeteer": "^22.7.1"
-  },
-  "devDependencies": {
-    "nodemon": "^3.1.0"
   }
 }
