@@ -1,9 +1,8 @@
 name: html-to-pdf-pup new releases
 
 on:
-  push:
-    branches:
-      - main
+  release:
+    types: [created]
 
 jobs:
   build-and-test:
