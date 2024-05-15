@@ -1,7 +1,7 @@
 {
   "name": "html-to-pdf-pup",
   "description": "An event-driven optimized system to convert HTML to PDF using Puppeteer in node js",
-  "version": "2.1.4",
+  "version": "2.2.4",
   "directories": {
     "lib": "lib"
   },
@@ -15,7 +15,7 @@
     "email": "aytida.dev@gmail.com"
   },
   "scripts": {
-    "test": "jest"
+    "test": "jest --detectOpenHandles"
   },
   "license": "MIT",
   "keywords": [

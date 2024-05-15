@@ -16,6 +16,7 @@
 > 8. Uses puppeter under the hood for pdf conversion.
 > 9. Returns a pdf buffer .
 > 10. Use dynamic height for pdfs by default.
+> 11. Have a built in cron job to make browser open in hotspots of your api.
 
 ### Optimizations techniques used:-
 
@@ -25,6 +26,7 @@
 > 4. Multiple tabs opens for concurrent pdf conversion.
 > 5. If a tab has done pdf conversion then it starts processing another request and only closes itself when all requests are done.
 > 6. Tight integration of max tab system and single broswer for better resource management.
+> 7. Full control of api in hands of user with build in cron jobs
 
 ## Installation
 
@@ -156,6 +158,34 @@ create_pdf(htmlData)
    > It is the puppeteer options that are passed to the puppeter launch function.
 
    > Refer here for all the options [puppeteer launch options](https://pptr.dev/api/puppeteer.launchoptions) , [puppeteer chrome specific options](https://pptr.dev/api/puppeteer.browserlaunchargumentoptions)
+
+5. browserConfig: object
+
+   ```js
+   //Default values
+   browserConfig : {
+       coolDownTime:0,
+       alwaysKeepOpen:false,
+   }
+   ```
+
+   > coolDownTime : It is the time in milliseconds that the browser will wait before closing itself after all the requests are done.
+
+   > alwaysKeepOpen : If true then the browser will never close itself and will always be open.
+
+6. cronConfig = object
+
+   ```js
+   //Default values
+   cronConfig : {
+       browserStartTime : null,
+       duration : null,
+   }
+   ```
+
+   > browserStartTime : It is a object with keys hour and minute to set the time at which the browser will open itself. e.g {hour: 13 , minute: 30} will open the browser at 1:30 PM.
+
+   > duration : It is the time in minutes after which the browser will close itself after opening , it should be atleast 30 minutes.
 
 ## Note
 
