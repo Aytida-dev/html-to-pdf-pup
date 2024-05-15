@@ -25,7 +25,7 @@ describe('Check tab function', () => {
         console.log = mockLog
 
         const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms))
-        const response = await Promise.all([create_pdf(htmlData), create_pdf(htmlData)], wait(1000))
+        const response = await Promise.all([create_pdf(htmlData), create_pdf(htmlData)])
 
         expect(response[0]).toBeDefined()
         expect(response[1]).toBeDefined()
